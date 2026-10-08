@@ -1,0 +1,22 @@
+package com.example.session01.controller;
+
+import com.example.session01.modals.entities.Product;
+import com.example.session01.modals.sevice.ProductSevices;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/v1/app")
+public class ProductController {
+
+    @Autowired
+    private ProductSevices productService;
+
+    @RequestMapping("/products")
+    public List<Product> getProducts() {
+        return productService.getProducts();
+    }
+}
